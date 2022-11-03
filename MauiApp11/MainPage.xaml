@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp11.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Entry">
+                <Setter Property="BackgroundColor"
+                        Value="#666" />
+                <!--<Setter Property="HeightRequest"
+                        Value="60" />-->
+                <!--<Setter Property="VerticalOptions"
+                        Value="Fill" />-->
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <VerticalStackLayout>
+        <Entry Text="Entry outside CollectionView" />
+        <Entry Text="Entry outside CollectionView" />
+        <CollectionView>
+            <CollectionView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Entry inside CollectionView</x:String>
+                    <x:String>Entry inside CollectionView</x:String>
+                    <x:String>Entry inside CollectionView</x:String>
+                    <x:String>Entry inside CollectionView</x:String>
+                    <x:String>Entry inside CollectionView</x:String>
+                    <x:String>Entry inside CollectionView</x:String>
+                    <x:String>Entry inside CollectionView</x:String>
+                </x:Array>
+            </CollectionView.ItemsSource>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Entry Text="{Binding .}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Entry Text="Entry outside CollectionView" />
+    </VerticalStackLayout>
+</ContentPage>
